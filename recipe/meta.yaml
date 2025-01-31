@@ -1,5 +1,5 @@
 {% set name = "tomli-w" %}
-{% set version = "1.0.0" %}
+{% set version = "1.2.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tomli_w-{{ version }}.tar.gz
-  sha256: f463434305e0336248cac9c2dc8076b707d8a12d019dd349f5c1e382dd1ae1b9
+  sha256: 2dd14fac5a47c27be9cd4c976af5a12d87fb1f0b4512f81d69cce3b35ae25021
 
 build:
   number: 0
@@ -18,14 +18,10 @@ build:
 requirements:
   host:
     - python
-    # We cannot use flit-core >=3.2.0,<4
-    # b/c we need to avoid a cyclic dependency on tomli-w
-    - flit-core 3.3.0
     - pip
-    - setuptools
-    - wheel
+    - flit-core >=3.2.0,<4
   run:
-    - python >=3.7
+    - python >=3.9
 
 test:
   imports:
@@ -38,6 +34,7 @@ test:
 about:
   home: https://pypi.org/project/tomli_w/
   summary: A lil' TOML writer
+  description: Tomli-W is a Python library for writing TOML. It is a write-only counterpart to Tomli, which is a read-only TOML parser. Tomli-W is fully compatible with TOML v1.0.0.
   license: MIT
   license_family: MIT
   license_file: LICENSE
